@@ -9,6 +9,8 @@ import { ListPage } from '../pages/list/list';
 import { LeaguePremierPage } from "../pages/league-premier/league-premier";
 import { LeagueCalcioPage } from "../pages/league-calcio/league-calcio";
 import { LeagueBbvaPage } from "../pages/league-bbva/league-bbva";
+import { DashboardPage } from "../pages/dashboard/dashboard";
+import {LeagueModel, TeamModel} from "../pages/league-bbva/league-bbva.model";
 
 
 @Component({
@@ -18,9 +20,11 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
   // make HelloIonicPage the root (or first) page
-  rootPage: any = HelloIonicPage;
+  rootPage: any = DashboardPage;
   pages: Array<{title: string, component: any}>;
-
+  league: LeagueModel = new LeagueModel();
+  team: TeamModel = new TeamModel();
+  names_team: string[];
   constructor(
     public platform: Platform,
     public menu: MenuController
@@ -36,6 +40,25 @@ export class MyApp {
       { title: 'BBVA LEAGUE', component: LeagueBbvaPage  },
 
     ];
+
+    this.league.name = "LEAGUE BBVA";
+    this.league.description = "Best league";
+
+    this.names_team =    ["Alaves","At.Bilbao","At.Madrid","Barcelona","Betis","Celta","Deportivo","Eibar","Español",
+                        "Granada","Palmas","Leganes","Málaga","Osasuna","R.Madrid","R.Sociedad","Sevilla","Sporting"
+                        ,"Valencia","Villarreal"];
+    this.league.teams = [];
+
+    for(var _i = 0; _i < this.names_team.length; _i++) {
+      this.team = new TeamModel();
+      this.team.id = _i;
+      this.team.name = this.names_team[_i];
+      this.team.image = "";
+      this.league.teams.push(this.team);
+      console.log(this.team);
+    }
+      console.log(this.league);
+
   }
 
   initializeApp() {

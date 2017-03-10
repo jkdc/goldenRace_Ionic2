@@ -8,6 +8,7 @@ import { LeaguePremierPage } from "../pages/league-premier/league-premier";
 import { LeagueCalcioPage } from "../pages/league-calcio/league-calcio";
 import { LeagueBbvaPage } from "../pages/league-bbva/league-bbva";
 import { FooterPage } from "../pages/footer/footer";
+import { DashboardPage } from "../pages/dashboard/dashboard";
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { FooterPage } from "../pages/footer/footer";
     LeaguePremierPage,
     LeagueCalcioPage,
     LeagueBbvaPage,
-    FooterPage
+    FooterPage,
+    DashboardPage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -32,7 +34,8 @@ import { FooterPage } from "../pages/footer/footer";
     LeaguePremierPage,
     LeagueCalcioPage,
     LeagueBbvaPage,
-    FooterPage
+    FooterPage,
+    DashboardPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
 })
