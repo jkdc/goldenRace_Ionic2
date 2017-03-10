@@ -1,0 +1,26 @@
+<ion-menu [content]="content">
+
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Pages</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <ion-list>
+      <ion-row class="user-main-data-row">
+        <p>Username: {{username}}</p>
+      </ion-row>
+      <ion-row class="user-main-data-row">
+        <p>Credit: {{credit}}</p>
+      </ion-row>
+    </ion-list>
+    <ion-list>
+      <button ion-item *ngFor="let p of pages" (click)="openPage(p)">
+        {{p.title}}
+      </button>
+    </ion-list>
+  </ion-content>
+
+</ion-menu>
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>
