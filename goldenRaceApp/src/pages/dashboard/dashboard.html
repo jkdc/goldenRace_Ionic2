@@ -10,11 +10,10 @@
 
 <ion-content padding>
   <ion-list>
-    <button ion-item *ngFor="let item of ligue" (click)="itemTapped($event, item)">
-      <ion-icon name="{{item.icon}}" item-left></ion-icon>
-      {{item.title}}
-
-    </button>
+      <ion-item-divider ion-item *ngFor="let item of ligue" (click)="itemTapped($event, item)" detail-push>
+        <ion-icon name="{{item.icon}}" item-left></ion-icon>
+        {{item.title}}
+      </ion-item-divider>
   </ion-list>
 
 </ion-content>

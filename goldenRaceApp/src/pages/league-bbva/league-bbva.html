@@ -8,6 +8,27 @@
 </ion-header>
 
 <ion-content padding>
+  <ion-list>
+    <ion-row>
+      LEAGUE BBVA
+    </ion-row>
+    <ion-row>
+      Imagneen
+    </ion-row>
+    <ion-row>
+      Descripcion
+    </ion-row>
+    <ion-row>
+      <ion-item-group>
+        <ion-item (click)="goToMatchResult()">
+          Event match-result
+        </ion-item>
+        <ion-item (click)="goToUnderOver()">
+          Event under-over
+        </ion-item>
+      </ion-item-group>
+    </ion-row>
 
+  </ion-list>
 </ion-content>
 <page-footer></page-footer>

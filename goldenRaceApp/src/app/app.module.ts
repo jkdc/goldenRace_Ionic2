@@ -9,6 +9,8 @@ import { LeagueCalcioPage } from "../pages/league-calcio/league-calcio";
 import { LeagueBbvaPage } from "../pages/league-bbva/league-bbva";
 import { FooterPage } from "../pages/footer/footer";
 import { DashboardPage } from "../pages/dashboard/dashboard";
+import { EventMatchResultPage } from "../pages/event-match-result/event-match-result";
+import { EventUnderOverPage } from "../pages/event-under-over/event-under-over";
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { DashboardPage } from "../pages/dashboard/dashboard";
     LeagueCalcioPage,
     LeagueBbvaPage,
     FooterPage,
-    DashboardPage
+    DashboardPage,
+    EventMatchResultPage,
+    EventUnderOverPage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -35,7 +39,9 @@ import { DashboardPage } from "../pages/dashboard/dashboard";
     LeagueCalcioPage,
     LeagueBbvaPage,
     FooterPage,
-    DashboardPage
+    DashboardPage,
+    EventMatchResultPage,
+    EventUnderOverPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
 })

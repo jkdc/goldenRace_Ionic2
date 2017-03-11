@@ -31,10 +31,8 @@ export class DashboardPage {
 
 
   itemTapped(event, item) {
-    console.log(item);
-    console.log(this.selectedLeague);
     //this.navCtrl.push(item.league);
-    this.navCtrl.setRoot(item.league)
+    this.navCtrl.setRoot(item.league, {}, { animate: true, direction: 'forward' });
   }
   ionViewDidLoad() {
     console.log('ionViewDidLoad DashboardPage');
