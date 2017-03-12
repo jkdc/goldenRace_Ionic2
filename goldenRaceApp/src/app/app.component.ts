@@ -40,7 +40,7 @@ export class MyApp {
       { title: 'BBVA LEAGUE', component: LeagueBbvaPage  },
 
     ];
-
+/*
     this.league.name = "LEAGUE BBVA";
     this.league.description = "Best league";
 
@@ -58,7 +58,7 @@ export class MyApp {
       console.log(this.team);
     }
       console.log(this.league);
-
+*/
   }
 
   initializeApp() {

@@ -30,5 +30,10 @@
     </ion-row>
 
   </ion-list>
+  <ion-list >
+    <ion-item-divider ion-item *ngFor="let item of teams" (click)="itemTapped($event, item)" detail-push>
+      <ion-row>{{item.id}} {{item.name}}</ion-row>
+    </ion-item-divider>
+  </ion-list>
 </ion-content>
 <page-footer></page-footer>

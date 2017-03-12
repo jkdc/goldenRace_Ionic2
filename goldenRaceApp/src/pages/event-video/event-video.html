@@ -16,46 +16,30 @@
     </ion-row>
     <ion-row>
       <ion-col>
-        <ion-item-divider ion-item (click)="goToMatchResult()" detail-push>
-          <ion-icon name="arrow-dropleft-circle"></ion-icon>
-        </ion-item-divider>
-      </ion-col>
-      <ion-col>
-        UNDER/OVER 1.5
-      </ion-col>
-      <ion-col>
-        <ion-item-divider ion-item (click)="goToMatchResult()" detail-push>
-          <ion-icon name="arrow-dropright-circle"></ion-icon>
-        </ion-item-divider>
+        LIVE
       </ion-col>
     </ion-row>
   </ion-list>
+  <ion-row>
+
+  </ion-row>
   <ion-list>
-    <ion-row>
-      <ion-col></ion-col>
-      <ion-col>UNDER</ion-col>
-      <ion-col>OVER</ion-col>
-    </ion-row>
     <ion-row>
       <ion-item-divider ion-item *ngFor="let item of matches.matches" detail-push>
         <ion-row>
           <ion-col>
-            <ion-row>{{item.team1.name}}</ion-row>
-            <ion-row>{{item.team2.name}}</ion-row>
+            {{item.team1.name}}
           </ion-col>
           <ion-col>
-            <ion-row>
-              <ion-item>99.9</ion-item>
-            </ion-row>
+            0 : 0
           </ion-col>
           <ion-col>
-            <ion-row>
-              <ion-item>99.9</ion-item>
-            </ion-row>
+            {{item.team2.name}}
           </ion-col>
         </ion-row>
       </ion-item-divider>
     </ion-row>
   </ion-list>
+
 </ion-content>
 <page-footer></page-footer>

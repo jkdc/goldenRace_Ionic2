@@ -18,16 +18,21 @@ export class LeagueModel {
 export class MatchModel {
   team1: TeamModel;
   team2: TeamModel;
-  goal_team1: number;
-  goal_team2: number;
+  goals_team1: number;
+  goals_team2: number;
   bet: string;
 }
 
 export class MatchResultModel {
+  id: number;
   matches: Array<MatchModel>;
 }
 
 export class UnderOverModel {
+  id: number;
   matches: Array<MatchModel>;
 }
 
+export class IdSystemModel {
+  id:number;
+}

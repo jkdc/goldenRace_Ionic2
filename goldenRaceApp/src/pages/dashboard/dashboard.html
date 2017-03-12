@@ -6,8 +6,6 @@
     <ion-title>Dashboard</ion-title>
   </ion-navbar>
 </ion-header>
-
-
 <ion-content padding>
   <ion-list>
       <ion-item-divider ion-item *ngFor="let item of ligue" (click)="itemTapped($event, item)" detail-push>
@@ -15,6 +13,5 @@
         {{item.title}}
       </ion-item-divider>
   </ion-list>
-
 </ion-content>
 <page-footer></page-footer>

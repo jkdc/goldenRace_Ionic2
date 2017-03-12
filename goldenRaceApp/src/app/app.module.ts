@@ -11,6 +11,8 @@ import { FooterPage } from "../pages/footer/footer";
 import { DashboardPage } from "../pages/dashboard/dashboard";
 import { EventMatchResultPage } from "../pages/event-match-result/event-match-result";
 import { EventUnderOverPage } from "../pages/event-under-over/event-under-over";
+import {LeagueBbvaService} from "../pages/league-bbva/league-bbva.service";
+import {EventVideoPage} from "../pages/event-video/event-video";
 
 @NgModule({
   declarations: [
@@ -24,7 +26,8 @@ import { EventUnderOverPage } from "../pages/event-under-over/event-under-over";
     FooterPage,
     DashboardPage,
     EventMatchResultPage,
-    EventUnderOverPage
+    EventUnderOverPage,
+    EventVideoPage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -41,8 +44,9 @@ import { EventUnderOverPage } from "../pages/event-under-over/event-under-over";
     FooterPage,
     DashboardPage,
     EventMatchResultPage,
-    EventUnderOverPage
+    EventUnderOverPage,
+    EventVideoPage
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
+  providers: [LeagueBbvaService,{provide: ErrorHandler, useClass: IonicErrorHandler}]
 })
 export class AppModule {}
