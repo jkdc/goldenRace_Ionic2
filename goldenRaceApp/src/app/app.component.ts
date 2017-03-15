@@ -5,17 +5,10 @@ import { Platform, MenuController, Nav } from 'ionic-angular';
 import { StatusBar, Splashscreen } from 'ionic-native';
 
 //import { HelloIonicPage } from '../pages/hello-ionic/hello-ionic';
-import { ListPage } from '../pages/list/list';
 import { LeaguePremierPage } from "../pages/league-premier/league-premier";
 import { LeagueCalcioPage } from "../pages/league-calcio/league-calcio";
 import { LeagueBbvaPage } from "../pages/league-bbva/league-bbva";
 import { DashboardPage } from "../pages/dashboard/dashboard";
-import {LeagueModel, TeamModel} from "../pages/league-bbva/league-bbva.model";
-
-import moment from 'moment';
-import {EventVideoPage} from "../pages/event-video/event-video";
-import {TimerService} from "../providers/timer.service";
-import {TimerPage} from "../pages/timer/timer";
 
 @Component({
   templateUrl: 'app.html'
@@ -26,13 +19,7 @@ export class MyApp {
   // make HelloIonicPage the root (or first) page
   rootPage: any = DashboardPage;
   pages: Array<{title: string, component: any}>;
-  league: LeagueModel = new LeagueModel();
-  team: TeamModel = new TeamModel();
-  names_team: string[];
-  //timer
-  public timeLeft: number = 60;
-  //time: number;
-  @ViewChild(TimerPage) timer: TimerPage;
+
   constructor(
     public platform: Platform,
     public menu: MenuController,
@@ -42,9 +29,8 @@ export class MyApp {
     // set our app's pages
     this.pages = [
       { title: 'Dashboard', component: DashboardPage },
-      { title: 'My First List', component: TimerPage },
-      { title: 'PREMIERE LEAGUE', component: LeaguePremierPage },
       { title: 'CALCIO LEAGUE', component: LeagueCalcioPage  },
+      { title: 'PREMIERE LEAGUE', component: LeaguePremierPage },
       { title: 'BBVA LEAGUE', component: LeagueBbvaPage  },
 
     ];
@@ -59,11 +45,8 @@ export class MyApp {
     });*/
   }
 
-  ngOnInit() {/*
-// use this if you want it to auto-start, hence the ViewChild import above.
-    setTimeout(() => {
-      this.timer.startTimer();
-    }, 1000)*/
+  ngOnInit() {
+
   }
 
   initializeApp() {

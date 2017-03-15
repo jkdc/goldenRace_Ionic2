@@ -33,7 +33,6 @@ import {LeagueService} from "../providers/league.service";
     EventMatchResultPage,
     EventUnderOverPage,
     EventVideoPage,
-    TimerPage,
     EventResultPage
   ],
   imports: [
@@ -53,7 +52,6 @@ import {LeagueService} from "../providers/league.service";
     EventMatchResultPage,
     EventUnderOverPage,
     EventVideoPage,
-    TimerPage,
     EventResultPage
   ],
   providers: [LeagueService, TimerService, EventIdService,{provide: ErrorHandler, useClass: IonicErrorHandler}]
