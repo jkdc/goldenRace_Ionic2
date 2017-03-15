@@ -1,4 +1,3 @@
-
 export class TeamModel {
   id: number;
   name: string;
@@ -36,4 +35,3 @@ export class UnderOverModel {
 export class IdSystemModel {
   id:number;
 }
-

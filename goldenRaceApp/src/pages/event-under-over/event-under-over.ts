@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import {LeagueModel, MatchResultModel, UnderOverModel} from "../league-bbva/league-bbva.model";
+import {LeagueModel, UnderOverModel} from "../models/league.model";
+import {TimerService} from "../../providers/timer.service";
+import {EventVideoPage} from "../event-video/event-video";
 import {EventMatchResultPage} from "../event-match-result/event-match-result";
 
 /*
@@ -11,26 +13,36 @@ import {EventMatchResultPage} from "../event-match-result/event-match-result";
 */
 @Component({
   selector: 'page-event-under-over',
-  templateUrl: 'event-under-over.html'
+  templateUrl: 'event-under-over.html',
+  providers: [TimerService]
 })
 export class EventUnderOverPage {
+  timer: TimerService;
   league: LeagueModel;
   matches: UnderOverModel;
   matches_uo: Array<UnderOverModel> = [];
+  in_event: boolean;
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.league = navParams.get('league');
-    //this.teams = this.league.teams;
-    this.matches_uo = this.league.uo;
-    this.matches = this.matches_uo[this.matches_uo.length-1];
-    //this.id = this.league.id;
-    console.log(this.matches.matches);
+    this.timer = navParams.get('timer');
+
+    this.matches = this.league.uo[this.league.uo.length-1];
+
+    this.in_event=false;
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad EventUnderOverPage');
   }
-
+  ngDoCheck() {
+    // called whenever Angular runs change detection
+    if(this.timer.getTime()=="00:00" && !this.in_event){
+      this.in_event=true;
+      this.navCtrl.setRoot(EventVideoPage, {league: this.league,timer:this.timer}, { animate: true, direction: 'forward' });
+    }
+  }
   goToMatchResult(){
-    this.navCtrl.setRoot(EventMatchResultPage, {league: this.league}, { animate: true, direction: 'forward' });
+    this.navCtrl.setRoot(EventMatchResultPage, {league: this.league,timer:this.timer}, { animate: true, direction: 'forward' });
   }
 }

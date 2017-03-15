@@ -12,6 +12,10 @@ import { LeagueBbvaPage } from "../pages/league-bbva/league-bbva";
 import { DashboardPage } from "../pages/dashboard/dashboard";
 import {LeagueModel, TeamModel} from "../pages/league-bbva/league-bbva.model";
 
+import moment from 'moment';
+import {EventVideoPage} from "../pages/event-video/event-video";
+import {TimerService} from "../providers/timer.service";
+import {TimerPage} from "../pages/timer/timer";
 
 @Component({
   templateUrl: 'app.html'
@@ -25,40 +29,41 @@ export class MyApp {
   league: LeagueModel = new LeagueModel();
   team: TeamModel = new TeamModel();
   names_team: string[];
+  //timer
+  public timeLeft: number = 60;
+  //time: number;
+  @ViewChild(TimerPage) timer: TimerPage;
   constructor(
     public platform: Platform,
-    public menu: MenuController
+    public menu: MenuController,
   ) {
     this.initializeApp();
 
     // set our app's pages
     this.pages = [
       { title: 'Dashboard', component: DashboardPage },
-      { title: 'My First List', component: ListPage },
+      { title: 'My First List', component: TimerPage },
       { title: 'PREMIERE LEAGUE', component: LeaguePremierPage },
       { title: 'CALCIO LEAGUE', component: LeagueCalcioPage  },
       { title: 'BBVA LEAGUE', component: LeagueBbvaPage  },
 
     ];
-/*
-    this.league.name = "LEAGUE BBVA";
-    this.league.description = "Best league";
+    //let time = moment().format('HHmmss');
+    //console.log(time);
+    //this.initialzeTimer();
+   // this.timer.initialzeTimer();
+    // We subscribe to the dismiss observable of the service
+   /* this.timer.dismiss.subscribe((value) => {
+      console.log("Hacia pagina event video");
 
-    this.names_team =    ["Alaves","At.Bilbao","At.Madrid","Barcelona","Betis","Celta","Deportivo","Eibar","Español",
-                        "Granada","Palmas","Leganes","Málaga","Osasuna","R.Madrid","R.Sociedad","Sevilla","Sporting"
-                        ,"Valencia","Villarreal"];
-    this.league.teams = [];
+    });*/
+  }
 
-    for(var _i = 0; _i < this.names_team.length; _i++) {
-      this.team = new TeamModel();
-      this.team.id = _i;
-      this.team.name = this.names_team[_i];
-      this.team.image = "";
-      this.league.teams.push(this.team);
-      console.log(this.team);
-    }
-      console.log(this.league);
-*/
+  ngOnInit() {/*
+// use this if you want it to auto-start, hence the ViewChild import above.
+    setTimeout(() => {
+      this.timer.startTimer();
+    }, 1000)*/
   }
 
   initializeApp() {
@@ -76,4 +81,6 @@ export class MyApp {
     // navigate to the new page if it is not the current page
     this.nav.setRoot(page.component);
   }
+
+
 }

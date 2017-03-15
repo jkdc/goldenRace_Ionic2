@@ -1,38 +1,57 @@
-import { Component } from '@angular/core';
+import {Component, SimpleChange, Input} from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import {MatchModel, LeagueModel, MatchResultModel} from "../league-bbva/league-bbva.model";
+import { LeagueModel, MatchResultModel} from "../models/league.model";
 import {EventUnderOverPage} from "../event-under-over/event-under-over";
+import {TimerService} from "../../providers/timer.service";
 import {EventVideoPage} from "../event-video/event-video";
 
 
-/*
-  Generated class for the EventMatchResult page.
-
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
-*/
 @Component({
   selector: 'page-event-match-result',
-  templateUrl: 'event-match-result.html'
+  templateUrl: 'event-match-result.html',
+  providers: [TimerService]
 })
 export class EventMatchResultPage {
+  @Input('counterValue') counterValue: number;
+  @Input('timer')timer: TimerService;
   league: LeagueModel;
   matches: MatchResultModel;
   matches_mr: Array<MatchResultModel> = [];
+  in_event: boolean;
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.league = navParams.get('league');
-    //this.teams = this.league.teams;
-    this.matches_mr = this.league.mr;
-    this.matches = this.matches_mr[this.matches_mr.length-1];
-    //this.id = this.league.id;
-    console.log(this.matches.matches);
+    this.timer = navParams.get('timer');
+
+    this.matches = this.league.mr[this.league.mr.length-1];
+
+    this.in_event=false;
+  }
+  goToEventVideo(){
+    console.log("cambio");
   }
 
+  ngDoCheck() {
+    // called whenever Angular runs change detection
+    if(this.timer.getTime()=="00:00" && !this.in_event){
+      this.in_event=true;
+      this.navCtrl.setRoot(EventVideoPage, {league: this.league,timer:this.timer}, { animate: true, direction: 'forward' });
+    }
+  }
   ionViewDidLoad() {
     console.log('ionViewDidLoad EventMatchResultPage');
+    //console.log(this.timer.displayTime);
   }
 
   goToUnderOver(){
-    this.navCtrl.setRoot(EventVideoPage/*EventUnderOverPage*/, {league: this.league}, { animate: true, direction: 'forward' });
+
+    this.navCtrl.setRoot(EventUnderOverPage, {league: this.league,timer:this.timer}, { animate: true, direction: 'forward' });
   }
+  ngOnChanges(changes: {[propertyName: string]: SimpleChange}) {
+    if (changes['timer.displayTime']) { // fire your event }
+      console.log("cambios");
+    }
+    console.log("cam");
+  }
+
 }

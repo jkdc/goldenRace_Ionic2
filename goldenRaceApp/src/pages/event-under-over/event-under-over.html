@@ -11,8 +11,12 @@
   <ion-list>
     <ion-row>ID LEAGUE XXXX</ion-row>
     <ion-row>
-      <ion-col>Ev. ID: YYYY</ion-col>
-      <ion-col>COUNTDOWN</ion-col>
+      <ion-col>Ev. ID: {{matches.id}}</ion-col>
+      <ion-col>
+        <ion-item class="no-bottom-border item">
+         <button ion-button  large full clear class="timer-button timer-text">{{timer.getTime()}}</button>
+        </ion-item>
+      </ion-col>
     </ion-row>
     <ion-row>
       <ion-col>

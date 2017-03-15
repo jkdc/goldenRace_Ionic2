@@ -3,7 +3,7 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Event Match/Result</ion-title>
+    <ion-title>RESULT</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -11,7 +11,7 @@
   <ion-list>
     <ion-row>ID LEAGUE XXXX</ion-row>
     <ion-row>
-      <ion-col>Ev. ID: YYYY</ion-col>
+      <ion-col>Ev. ID: {{matches.id}}</ion-col>
       <ion-col>
         <ion-item class="no-bottom-border item">
           <button ion-button (change)="goToEventVideo()" large full clear class="timer-button timer-text">{{timer.getTime()}}</button>
@@ -20,16 +20,10 @@
     </ion-row>
     <ion-row>
       <ion-col>
-        LIVE
+        RESULT
       </ion-col>
     </ion-row>
   </ion-list>
-  <ion-row>
-    <video (ended)="onFinishPlayer($event)"    id="{{videoplayer}}" autoplay width="320" height="240"  >
-      <source src="./assets/video/VIDEO.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-  </ion-row>
   <ion-list>
     <ion-row>
       <ion-item-divider ion-item *ngFor="let item of this.league.mr[this.league.mr.length-1].matches" detail-push>

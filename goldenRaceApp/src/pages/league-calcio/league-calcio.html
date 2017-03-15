@@ -3,11 +3,37 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>PREMIER CALCIO</ion-title>
+    <ion-title>CALCIO</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
+  <ion-list>
+    <ion-row>
+      LEAGUE CALCIO
+    </ion-row>
+    <ion-row>
+      Imagnen
+    </ion-row>
+    <ion-row>
+      Descripcion
+    </ion-row>
+    <ion-row>
+      <ion-item-group>
+        <ion-item (click)="goToMatchResult()">
+          Event match-result
+        </ion-item>
+        <ion-item (click)="goToUnderOver()">
+          Event under-over
+        </ion-item>
+      </ion-item-group>
+    </ion-row>
 
+  </ion-list>
+  <ion-list >
+    <ion-item-divider ion-item *ngFor="let item of teams" (click)="itemTapped($event, item)" detail-push>
+      <ion-row>{{item.id}} {{item.name}}</ion-row>
+    </ion-item-divider>
+  </ion-list>
 </ion-content>
 <page-footer></page-footer>

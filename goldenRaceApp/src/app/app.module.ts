@@ -13,6 +13,11 @@ import { EventMatchResultPage } from "../pages/event-match-result/event-match-re
 import { EventUnderOverPage } from "../pages/event-under-over/event-under-over";
 import {LeagueBbvaService} from "../pages/league-bbva/league-bbva.service";
 import {EventVideoPage} from "../pages/event-video/event-video";
+import {TimerService} from "../providers/timer.service";
+import {TimerPage} from "../pages/timer/timer";
+import {EventResultPage} from "../pages/event-result/event-result";
+import {EventIdService} from "../providers/event.service";
+import {LeagueService} from "../providers/league.service";
 
 @NgModule({
   declarations: [
@@ -27,7 +32,9 @@ import {EventVideoPage} from "../pages/event-video/event-video";
     DashboardPage,
     EventMatchResultPage,
     EventUnderOverPage,
-    EventVideoPage
+    EventVideoPage,
+    TimerPage,
+    EventResultPage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -45,8 +52,10 @@ import {EventVideoPage} from "../pages/event-video/event-video";
     DashboardPage,
     EventMatchResultPage,
     EventUnderOverPage,
-    EventVideoPage
+    EventVideoPage,
+    TimerPage,
+    EventResultPage
   ],
-  providers: [LeagueBbvaService,{provide: ErrorHandler, useClass: IonicErrorHandler}]
+  providers: [LeagueService, TimerService, EventIdService,{provide: ErrorHandler, useClass: IonicErrorHandler}]
 })
 export class AppModule {}

@@ -2,18 +2,15 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import {EventMatchResultPage} from "../event-match-result/event-match-result";
 import {EventUnderOverPage} from "../event-under-over/event-under-over";
-import {LeagueBbvaService} from "./league-bbva.service";
-import {LeagueModel,MatchModel, MatchResultModel, UnderOverModel} from "./league-bbva.model";
+import {LeagueModel,MatchModel, MatchResultModel, UnderOverModel} from "../models/league.model";
+import {TimerService} from "../../providers/timer.service";
+import {EventIdService} from "../../providers/event.service";
+import {LeagueService} from "../../providers/league.service";
 
-/*
-  Generated class for the LeagueBbva page.
-
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
-*/
 @Component({
   selector: 'page-league-bbva',
-  templateUrl: 'league-bbva.html'
+  templateUrl: 'league-bbva.html',
+  providers: [LeagueService, TimerService, EventIdService]
 })
 export class LeagueBbvaPage {
   league_bbva: LeagueModel;
@@ -23,41 +20,39 @@ export class LeagueBbvaPage {
   match_uo: UnderOverModel = new UnderOverModel;
   matches_mr: Array<MatchResultModel> = [];
   matches_uo: Array<UnderOverModel> = [];
-  constructor(public navCtrl: NavController, public navParams: NavParams, public leagueService:LeagueBbvaService) {
-
-  }
+  constructor(public navCtrl: NavController, public navParams: NavParams, public leagueService:LeagueService,public timer:TimerService,
+              public event: EventIdService) {}
 
   ionViewDidLoad() {
-
     this.matches_mr = [];
     this.matches_uo = [];
     this.league_bbva = this.leagueService.getData();
     this.teams = this.league_bbva.teams;
     this.matches = this.leagueService.makeWorkingDay(this.teams);
 
-    this.match_mr.id=1;
+    this.match_mr.id=this.event.getNewId();
     this.match_mr.matches=this.matches;
     this.matches_mr.push(this.match_mr);
 
-    this.match_uo.id=1;
+    this.match_uo.id=this.event.getNewId();
     this.match_uo.matches=this.matches;
 
-    this.league_bbva.mr.push(this.match_mr);//=this.matches_mr;
+    this.league_bbva.mr.push(this.match_mr);
     this.league_bbva.uo.push(this.match_uo);
-
-    console.log(this.league_bbva);
-
-    this.league_bbva = this.leagueService.getResultMatchs(this.league_bbva);
-    console.log(this.league_bbva);
-    console.log('ionViewDidLoad LeagueBbvaPage');
 
   }
 
 
   goToUnderOver(){
-    this.navCtrl.setRoot(EventUnderOverPage, {league: this.league_bbva}, { animate: true, direction: 'forward' });
+    if(!this.timer.isInit()){
+      this.timer.initTimer();
+    }
+    this.navCtrl.setRoot(EventUnderOverPage, {league: this.league_bbva, timer: this.timer}, { animate: true, direction: 'forward' });
   }
   goToMatchResult(){
-    this.navCtrl.setRoot(EventMatchResultPage, {league: this.league_bbva}, { animate: true, direction: 'forward' });
+    if(!this.timer.isInit()){
+      this.timer.initTimer();
+    }
+    this.navCtrl.setRoot(EventMatchResultPage, {league: this.league_bbva, timer: this.timer}, { animate: true, direction: 'forward' });
   }
 }

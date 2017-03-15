@@ -3,23 +3,18 @@ import { NavController, NavParams } from 'ionic-angular';
 import {LeagueCalcioPage} from "../league-calcio/league-calcio";
 import {LeaguePremierPage} from "../league-premier/league-premier";
 import {LeagueBbvaPage} from "../league-bbva/league-bbva";
+import {TimerService} from "../../providers/timer.service";
 
-/*
-  Generated class for the Dashboard page.
-
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
-*/
 @Component({
   selector: 'page-dashboard',
-  templateUrl: 'dashboard.html'
+  templateUrl: 'dashboard.html',
+  providers: [TimerService]
 })
 export class DashboardPage {
   selectedLeague: any;
-  icons: string[];
   ligue: Array<{league: any,title: string, icon: string}>;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,public timer:TimerService) {
     this.selectedLeague = navParams.get('league ');
 
     this.ligue = [
@@ -34,10 +29,11 @@ export class DashboardPage {
     console.log(item);
     console.log(this.selectedLeague);
     //this.navCtrl.push(item.league);
-    this.navCtrl.setRoot(item.league, {}, { animate: true, direction: 'forward' });
+    this.navCtrl.setRoot(item.league, {timer: this.timer}, { animate: true, direction: 'forward' });
   }
   ionViewDidLoad() {
     console.log('ionViewDidLoad DashboardPage');
+  //  console.log(this.timer.getTime());
   }
 
 }
