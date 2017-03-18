@@ -3,70 +3,70 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Event Match/Result</ion-title>
+    <ion-title>
+      <div><img class="logo" alt="logo" height="40"   src="./assets/img/logo.png" ></div>
+    </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <ion-list>
-    <ion-row>ID LEAGUE XXXX</ion-row>
-    <ion-row>
-      <ion-col>Ev. ID: YYYY</ion-col>
-      <ion-col>
-        <ion-item class="no-bottom-border item">
-          <button ion-button (change)="goToEventVideo()" large full clear class="timer-button timer-text">{{timer.getTime()}}</button>
-        </ion-item>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col>
-        <ion-item-divider ion-item (click)="goToUnderOver()" detail-push>
-          <ion-icon name="arrow-dropleft-circle"></ion-icon>
-        </ion-item-divider>
-      </ion-col>
-      <ion-col>
+  <div class="cabecera">
+    <div class="row header">ID LEAGUE XXXX</div>
+    <div class="row header">
+      <div class="col">Ev. ID: YYYY</div>
+      <div class="col">
+        <span class="timer">{{timer.getTime()}}</span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <ion-icon class="item-icon-event-left"  (click)="goToUnderOver()" name="arrow-dropleft-circle"></ion-icon>
+      </div>
+      <div class="col title">
         MATCH RESULT
-      </ion-col>
-      <ion-col>
-        <ion-item-divider ion-item (click)="goToUnderOver()" detail-push>
-          <ion-icon name="arrow-dropright-circle"></ion-icon>
-        </ion-item-divider>
-      </ion-col>
-    </ion-row>
-  </ion-list>
-  <ion-list>
-    <ion-row>
-      <ion-col></ion-col>
-      <ion-col>1</ion-col>
-      <ion-col>x</ion-col>
-      <ion-col>2</ion-col>
-    </ion-row>
-    <ion-item-divider ion-item *ngFor="let item of matches.matches"  detail-push>
-      <ion-row>
-        <ion-col>
-          <ion-row>{{item.team1.name}}</ion-row>
-          <ion-row>{{item.team2.name}}</ion-row>
-        </ion-col>
-        <ion-col>
-          <ion-row>
-            <ion-item>99.9</ion-item>
-          </ion-row>
-        </ion-col>
-        <ion-col>
-          <ion-row>
-            <ion-item>99.9</ion-item>
-          </ion-row>
-        </ion-col>
-        <ion-col>
-          <ion-row>
-            <ion-item>99.9</ion-item>
-          </ion-row>
-        </ion-col>
-      </ion-row>
-    </ion-item-divider>
-  </ion-list>
+      </div>
+      <div class="col">
+        <ion-icon class="item-button item-icon-event-right"  (click)="goToUnderOver()" name="arrow-dropright-circle" item-right></ion-icon>
+      </div>
+    </div>
+  </div>
+
+  <div class="bet">
+    <ion-list no-padding>
+      <div class="row bet-type">
+        <div class="col"></div>
+        <div class="col"><span>1</span></div>
+        <div class="col"><span>x</span></div>
+        <div class="col"><span>2</span></div>
+      </div>
+      <div class="row teams">
+        <ion-item class="teams-bet" no-lines *ngFor="let item of matches.matches"  detail-push>
+          <div class="row">
+            <div class="col ">
+              <div class="row"><span>{{item.team1.name}}</span></div>
+              <div class="row"><span>{{item.team2.name}}</span></div>
+            </div>
+            <div class="col recuadro">
+              <ion-item (click)="goTopresentPrompt(item.team1.name,null)" ><span>99.9</span></ion-item>
+            </div>
+            <div class="col recuadro">
+              <ion-item (click)="goTopresentPrompt(item.team1.name,item.team1.name)"><span>99.9</span></ion-item>
+            </div>
+            <div class="col recuadro">
+              <ion-item (click)="goTopresentPrompt(item.team2.name,null)" ><span>99.9</span></ion-item>
+            </div>
+          </div>
+        </ion-item>
+      </div>
+
+    </ion-list>
+  </div>
 </ion-content>
-<page-footer></page-footer>
+<ion-footer  class="footer">
+  <ion-toolbar>
+    <ion-title>Footer Toolbar Joaquín Cardoso Buzón</ion-title>
+  </ion-toolbar>
+</ion-footer>
 
 
 

@@ -3,15 +3,23 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Dashboard</ion-title>
+    <ion-title>
+      <div><img class="logo" alt="logo" height="40"   src="./assets/img/logo.png" ></div>
+    </ion-title>
   </ion-navbar>
 </ion-header>
-<ion-content padding>
+
+<ion-content class="content has-header container">
   <ion-list>
-      <ion-item-divider ion-item *ngFor="let item of ligue" (click)="itemTapped($event, item)" detail-push>
+      <ion-item *ngFor="let item of ligue" (click)="itemTapped($event, item)" detail-push>
         <ion-icon name="{{item.icon}}" item-left></ion-icon>
-        {{item.title}}
-      </ion-item-divider>
+        <span>{{item.title}}</span>
+      </ion-item>
   </ion-list>
 </ion-content>
-<page-footer></page-footer>
+
+<ion-footer  class="footer">
+  <ion-toolbar>
+    <ion-title>Footer Toolbar Joaquín Cardoso Buzón</ion-title>
+  </ion-toolbar>
+</ion-footer>

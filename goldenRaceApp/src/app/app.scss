@@ -14,3 +14,22 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+body{
+  background-color: color($colors, primary);
+
+}
+
+.menu.menu-left, .list a {
+  border-color: transparent;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.menu.menu-left, .list img {
+  float: left;
+  vertical-align: middle;
+}
+
+.menu.menu-left, .list h2 {
+  display: inline-block;
+}

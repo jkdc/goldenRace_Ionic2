@@ -1,3 +1,69 @@
 page-event-under-over {
 
+  .cabecera{
+    .header:first-child{
+      border: solid 1px grey;
+    }
+    .header:last-child{
+      border-bottom: solid 1px grey;
+    }
+    .header .col {
+      border-bottom: solid 1px grey;
+      background-color:lightgrey;
+    }
+    .col {
+      border-bottom-style: none;
+      border-right: solid 1px grey;
+    }
+    .col:last-child {
+      border-right: solid 1px grey;
+    }
+    .col:first-child {
+      border-left: solid 1px grey;
+    }
+    .row:last-child .col {
+      border-bottom: solid 1px grey;
+    }
+    .row{
+      .title{
+        text-align: center;
+      }
+    }
+  }
+  .timer{
+    position: absolute;
+    right: 15px;
+  }
+  .bet{
+    .recuadro{
+      ion-item {
+        background-color: lightgray;
+        border: solid 1px grey;
+        text-align: center;
+
+      }
+    }
+    .col{
+      text-align: center;
+    }
+  }
+  .item-icon-event-right{
+    right: 15px;
+    position: absolute;
+  }
+  .item-icon-event-left{
+    left: 15px;
+    position: absolute;
+  }
+
+  span{
+    text-align: center;
+  }
+  .label {
+    margin: 0;
+  }
+
+  .item-inner {
+    padding-right: 0px!important;
+  }
 }

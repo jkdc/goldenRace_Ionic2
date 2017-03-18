@@ -30,6 +30,7 @@ export class LeagueService {
     for (var _i = 0; _i < this.names_team_bbva.length; _i++) {
       this.team = new TeamModel();
       this.team.id = _i;
+      this.team.image = './assets/img/escudo.PNG';
       this.team.name = this.names_team_bbva[_i];
       this.team.image = "";
       this.league.teams.push(this.team);
@@ -42,7 +43,7 @@ export class LeagueService {
     this.league.name = "LEAGUE BBVA";
     this.league.description = "Best league";
 
-    this.names_team_calcio = ["Atalanta", "Bologna", "Cagliari", "Chievo", "Crotone", "Empoli", "Fiorentina", "Genoa", "Internazionale",
+    this.names_team_calcio = ["Atalanta", "Bologna", "Cagliari", "Chievo", "Crotone", "Empoli", "Fiorentina", "Genoa", "Inter",
       "Juventus", "Lazio", "Milan", "Napoli", "Palermo", "Pescara", "Roma", "Sampdoria", "Sassuolo"
       , "Torino", "Udinese"];
     this.league.teams = [];
@@ -52,6 +53,7 @@ export class LeagueService {
     for (var _i = 0; _i < this.names_team_calcio.length; _i++) {
       this.team = new TeamModel();
       this.team.id = _i;
+      this.team.image = './assets/img/escudo.PNG';
       this.team.name = this.names_team_calcio[_i];
       this.team.image = "";
       this.league.teams.push(this.team);
@@ -75,7 +77,7 @@ export class LeagueService {
       this.team = new TeamModel();
       this.team.id = _i;
       this.team.name = this.names_team_premier[_i];
-      this.team.image = "";
+      this.team.image = './assets/img/escudo.PNG';
       this.league.teams.push(this.team);
     }
 

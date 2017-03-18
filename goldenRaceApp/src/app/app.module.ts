@@ -18,6 +18,8 @@ import {TimerPage} from "../pages/timer/timer";
 import {EventResultPage} from "../pages/event-result/event-result";
 import {EventIdService} from "../providers/event.service";
 import {LeagueService} from "../providers/league.service";
+import {TeamModalPage} from "../pages/team-modal/team-modal";
+import {HeaderPage} from "../pages/header/header";
 
 @NgModule({
   declarations: [
@@ -33,7 +35,10 @@ import {LeagueService} from "../providers/league.service";
     EventMatchResultPage,
     EventUnderOverPage,
     EventVideoPage,
-    EventResultPage
+    EventResultPage,
+    TeamModalPage,
+    HeaderPage
+
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -52,7 +57,9 @@ import {LeagueService} from "../providers/league.service";
     EventMatchResultPage,
     EventUnderOverPage,
     EventVideoPage,
-    EventResultPage
+    EventResultPage,
+    TeamModalPage,
+    HeaderPage
   ],
   providers: [LeagueService, TimerService, EventIdService,{provide: ErrorHandler, useClass: IonicErrorHandler}]
 })

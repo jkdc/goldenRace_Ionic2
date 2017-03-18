@@ -55,7 +55,7 @@ export class LeaguePremierPage {
   }
   goToItemTapped(event,item){
     let actionSheet = this.actionSheetCtrl.create({
-      title: 'Modify your album',
+      title: 'Team',
       buttons: [
         {
           text: 'ID:: '+item.id,
@@ -66,6 +66,7 @@ export class LeaguePremierPage {
               ]
     });
     actionSheet.present();
+    actionSheet._cssClass
 
   }
 }

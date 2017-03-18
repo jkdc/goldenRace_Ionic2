@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import {NavController, NavParams, ModalController} from 'ionic-angular';
 import {LeagueService} from "../../providers/league.service";
 import {TimerService} from "../../providers/timer.service";
 import {EventIdService} from "../../providers/event.service";
 import {LeagueModel, MatchModel, MatchResultModel, UnderOverModel} from "../models/league.model";
 import {EventMatchResultPage} from "../event-match-result/event-match-result";
 import {EventUnderOverPage} from "../event-under-over/event-under-over";
+import {TeamModalPage} from "../team-modal/team-modal";
 
 
 @Component({
@@ -23,7 +24,7 @@ export class LeagueCalcioPage {
   matches_mr: Array<MatchResultModel> = [];
   matches_uo: Array<UnderOverModel> = [];
   constructor(public navCtrl: NavController, public navParams: NavParams, public leagueService:LeagueService,public timer:TimerService,
-              public event: EventIdService) {}
+              public event: EventIdService, public modalCtrl: ModalController) {}
 
   ionViewDidLoad() {
 
@@ -54,5 +55,9 @@ export class LeagueCalcioPage {
       this.timer.initTimer();
     }
     this.navCtrl.setRoot(EventMatchResultPage, {league: this.league_premier, timer: this.timer}, { animate: true, direction: 'forward' });
+  }
+  presentModal(event,team) {
+    let myModal = this.modalCtrl.create(TeamModalPage,{team: team});
+    myModal.present();
   }
 }
