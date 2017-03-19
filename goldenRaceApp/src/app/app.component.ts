@@ -4,45 +4,37 @@ import { Platform, MenuController, Nav } from 'ionic-angular';
 
 import { StatusBar, Splashscreen } from 'ionic-native';
 
-//import { HelloIonicPage } from '../pages/hello-ionic/hello-ionic';
 import { LeaguePremierPage } from "../pages/league-premier/league-premier";
 import { LeagueCalcioPage } from "../pages/league-calcio/league-calcio";
 import { LeagueBbvaPage } from "../pages/league-bbva/league-bbva";
 import { DashboardPage } from "../pages/dashboard/dashboard";
+import {Storage} from "@ionic/storage";
 
 @Component({
-  templateUrl: 'app.html'
+  templateUrl: 'app.html',
+  providers: [Storage]
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  // make HelloIonicPage the root (or first) page
   rootPage: any = DashboardPage;
   pages: Array<{title: string, component: any}>;
 
   constructor(
     public platform: Platform,
     public menu: MenuController,
+    public storage: Storage
   ) {
     this.initializeApp();
 
     // set our app's pages
     this.pages = [
-      { title: 'Dashboard', component: DashboardPage },
       { title: 'CALCIO LEAGUE', component: LeagueCalcioPage  },
       { title: 'PREMIERE LEAGUE', component: LeaguePremierPage },
       { title: 'BBVA LEAGUE', component: LeagueBbvaPage  },
-
     ];
-    //let time = moment().format('HHmmss');
-    //console.log(time);
-    //this.initialzeTimer();
-   // this.timer.initialzeTimer();
-    // We subscribe to the dismiss observable of the service
-   /* this.timer.dismiss.subscribe((value) => {
-      console.log("Hacia pagina event video");
-
-    });*/
+    this.storage.set('id_event',1).then((store) => {
+    });
   }
 
   ngOnInit() {

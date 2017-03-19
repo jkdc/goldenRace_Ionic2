@@ -43,8 +43,8 @@ export class LeagueService {
     this.league.name = "LEAGUE BBVA";
     this.league.description = "Best league";
 
-    this.names_team_calcio = ["Atalanta", "Bologna", "Cagliari", "Chievo", "Crotone", "Empoli", "Fiorentina", "Genoa", "Inter",
-      "Juventus", "Lazio", "Milan", "Napoli", "Palermo", "Pescara", "Roma", "Sampdoria", "Sassuolo"
+    this.names_team_calcio = ["Atalanta", "Bologna", "Cagliari", "Chievo", "Crotone", "Empoli", "Fiorenti.", "Genoa", "Inter",
+      "Juventus", "Lazio", "Milan", "Napoli", "Palermo", "Pescara", "Roma", "Sampdor.", "Sassuolo"
       , "Torino", "Udinese"];
     this.league.teams = [];
     this.league.mr = [];
@@ -66,9 +66,9 @@ export class LeagueService {
     this.league.name = "LEAGUE BBVA";
     this.league.description = "Best league";
 
-    this.names_team_premier = ["Arsenal", "Bournemouth", "Burnley", "Chelsea", "C.Palace", "Everton", "Hull", "Leicester", "Liverpool",
-      "Man.City", "Man.Utd", "Middlesbrough", "Southampton", "Stoke", "Sunderland", "Swansea", "Spurs", "Watford"
-      , "West Brom", "West Ham"];
+    this.names_team_premier = ["Arsenal", "Bournem.", "Burnley", "Chelsea", "C.Palace", "Everton", "Hull", "Leicester", "Liverpool",
+      "Man.City", "Man.Utd", "Middlesb.", "Southam.", "Stoke", "Sunderl.", "Swansea", "Spurs", "Watford"
+      , "West B.", "West H."];
     this.league.teams = [];
     this.league.mr = [];
     this.league.uo = [];
@@ -113,8 +113,6 @@ export class LeagueService {
 
   getResultMatchs(league) {
     let array = league.mr[league.mr.length - 1];
-    console.log("array");
-    console.log(array);
     let goals_team1, goals_team2;
 
     for (let match of array.matches) {
@@ -133,10 +131,7 @@ export class LeagueService {
     let waitTime = 13500;
     let count = 0;
     let team;
-    let array = league.mr[league.mr.length - 1];
 
-    let goals_team1 = 0;
-    let goals_team2 = 0;
     let times = setInterval(() => {
       count++;
       if (count > 6) {

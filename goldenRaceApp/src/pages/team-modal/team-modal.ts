@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import {NavController, NavParams, ViewController} from 'ionic-angular';
 import {TeamModel} from "../models/league.model";
 
 /*
@@ -14,12 +14,17 @@ import {TeamModel} from "../models/league.model";
 })
 export class TeamModalPage {
   team: TeamModel;
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,private viewCtrl: ViewController) {
     this.team = navParams.get('team');
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad TeamModalPage');
   }
+  close(){
 
+}
+  dismiss(data) {
+    this.viewCtrl.dismiss(data);
+  }
 }

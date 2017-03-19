@@ -12,7 +12,7 @@
 <ion-content padding>
 
   <div class="cabecera">
-    <div class="row header">ID LEAGUE XXXX</div>
+    <div class="row header">ID LEAGUE {{matches_rm.length}}</div>
 
     <div class="row header">
       <div class="col">Ev. ID: {{matches.id}}</div>
@@ -30,7 +30,7 @@
 
   <div class="bet">
     <ion-list class="result">
-      <ion-item *ngFor="let item of this.league.mr[this.league.mr.length-1].matches" detail-push>
+      <ion-item no-lines *ngFor="let item of this.league.mr[this.league.mr.length-1].matches" detail-push>
         <div class="row">
           <div class="col">
             {{item.team1.name}}
@@ -46,9 +46,14 @@
     </ion-list>
   </div>
 
-</ion-content>
-<ion-footer  class="footer">
-  <ion-toolbar>
-    <ion-title>Footer Toolbar Joaquín Cardoso Buzón</ion-title>
-  </ion-toolbar>
-</ion-footer>
+  <ion-footer  class="footer">
+    <ion-toolbar>
+      <ion-title>
+        <ion-col>
+          <ion-icon name="logo-github" onclick="window.open('https://github.com/jkdc/goldenRace_Ionic2', '_system', 'location=yes'); return false;"></ion-icon>
+          <ion-icon name="cloud-download" onclick="window.open('https://www.dropbox.com/sh/9arcusb17xohk00/AADbIO0SX3hjAVM0XLxNsQ-Ea?dl=0', '_system', 'location=yes'); return false;"></ion-icon>
+        </ion-col>
+        <ion-col>Joaquín Cardoso Buzón</ion-col>
+      </ion-title>
+    </ion-toolbar>
+  </ion-footer>

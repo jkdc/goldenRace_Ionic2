@@ -12,7 +12,7 @@
 <ion-content padding class="container content">
   <ion-list>
     <ion-row>
-      <h1 class="title"> LEAGUE CALCIO </h1>
+      <h1 class="title">LEAGUE CALCIO</h1>
     </ion-row>
     <ion-row>
       <img class="img" src="./assets/img/logo_calcio.png"/>
@@ -29,13 +29,20 @@
     </ion-row>
   </ion-list>
   <ion-list >
-    <ion-item style-changer ion-item *ngFor="let item of teams" (click)="presentModal($event, item)" detail-push>
+    <ion-item  style-changer *ngFor="let item of teams" (click)="presentModal($event, item)" detail-push>
       <ion-row>{{item.id}} {{item.name}}</ion-row>
     </ion-item>
   </ion-list>
 </ion-content>
+
 <ion-footer  class="footer">
   <ion-toolbar>
-    <ion-title>Footer Toolbar Joaquín Cardoso Buzón</ion-title>
+    <ion-title>
+      <ion-col>
+        <ion-icon name="logo-github" onclick="window.open('https://github.com/jkdc/goldenRace_Ionic2', '_system', 'location=yes'); return false;"></ion-icon>
+        <ion-icon name="cloud-download" onclick="window.open('https://www.dropbox.com/sh/9arcusb17xohk00/AADbIO0SX3hjAVM0XLxNsQ-Ea?dl=0', '_system', 'location=yes'); return false;"></ion-icon>
+      </ion-col>
+      <ion-col>Joaquín Cardoso Buzón</ion-col>
+    </ion-title>
   </ion-toolbar>
 </ion-footer>

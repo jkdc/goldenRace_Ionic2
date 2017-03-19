@@ -13,7 +13,7 @@ export class TimerService {
 
     this.init=false;
     if (!this.timeInSeconds) {
-      this.timeInSeconds = 5;
+      this.timeInSeconds = 180;
     }
 
     this.timer = <ITimer>{
@@ -36,7 +36,7 @@ export class TimerService {
 
     this.init=true;
     if (!this.timeInSeconds) {
-      this.timeInSeconds = 5;
+      this.timeInSeconds = 180;
     }
 /*
     this.timer = <ITimer>{
@@ -70,7 +70,6 @@ export class TimerService {
       }
       else {
         this.timer.hasFinished = true;
-        //  this.navCtrl.setRoot(EventVideoPage,{league: this.league});
       }
     }, 1000);
   }

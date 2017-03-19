@@ -22,6 +22,7 @@ export class EventUnderOverPage {
   matches: UnderOverModel;
   matches_uo: Array<UnderOverModel> = [];
   in_event: boolean;
+  jornada: number;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,  private alertCtrl: AlertController) {
     this.league = navParams.get('league');
@@ -33,13 +34,13 @@ export class EventUnderOverPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad EventUnderOverPage');
+    this.jornada = this.league.mr.length;
   }
   ngDoCheck() {
     // called whenever Angular runs change detection
     if(this.timer.getTime()=="00:00" && !this.in_event){
       this.in_event=true;
-   //   this.navCtrl.setRoot(EventVideoPage, {league: this.league,timer:this.timer}, { animate: true, direction: 'forward' });
+      this.navCtrl.setRoot(EventVideoPage, {league: this.league,timer:this.timer}, { animate: true, direction: 'forward' });
     }
   }
   goToMatchResult(){
