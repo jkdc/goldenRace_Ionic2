@@ -6,11 +6,12 @@ import {EventIdService} from "../../providers/event.service";
 import {LeagueModel, MatchModel, MatchResultModel, UnderOverModel} from "../models/league.model";
 import {EventUnderOverPage} from "../event-under-over/event-under-over";
 import {EventMatchResultPage} from "../event-match-result/event-match-result";
+import {Storage} from "@ionic/storage";
 
 @Component({
   selector: 'page-league-premier',
   templateUrl: 'league-premier.html',
-  providers: [LeagueService, TimerService, EventIdService]
+  providers: [LeagueService, TimerService, EventIdService,Storage]
 
 })
 export class LeaguePremierPage {
@@ -22,7 +23,9 @@ export class LeaguePremierPage {
   matches_mr: Array<MatchResultModel> = [];
   matches_uo: Array<UnderOverModel> = [];
   constructor(public navCtrl: NavController, public navParams: NavParams, public leagueService:LeagueService,public timer:TimerService,
-  public event: EventIdService,public actionSheetCtrl: ActionSheetController) {}
+  public event: EventIdService,public actionSheetCtrl: ActionSheetController) {
+
+  }
 
   ionViewDidLoad() {
     this.matches_mr = [];
@@ -31,11 +34,15 @@ export class LeaguePremierPage {
     this.teams = this.league_premier.teams;
     this.matches = this.leagueService.makeWorkingDay(this.teams);
 
-    this.match_mr.id=this.event.getNewId();
+    this.event.getNewId().then(data => {
+      this.match_mr.id=data;
+    });
     this.match_mr.matches=this.matches;
     this.matches_mr.push(this.match_mr);
 
-    this.match_uo.id=this.event.getNewId();
+    this.event.getNewId().then(data => {
+      this.match_uo.id=data;
+    });
     this.match_uo.matches=this.matches;
 
     this.league_premier.mr.push(this.match_mr);

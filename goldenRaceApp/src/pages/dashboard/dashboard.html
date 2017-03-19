@@ -10,9 +10,9 @@
 </ion-header>
 
 <ion-content class="content has-header container">
-  <ion-list>
-      <ion-item *ngFor="let item of ligue" (click)="itemTapped($event, item)" detail-push>
-        <ion-icon name="{{item.icon}}" item-left></ion-icon>
+  <ion-list >
+      <ion-item [@itemState]="item.state" *ngFor="let item of league" (click)="itemTapped($event, item)" detail-push>
+        <ion-icon [@itemState]="item.state" name="{{item.icon}}" item-left></ion-icon>
         <span>{{item.title}}</span>
       </ion-item>
   </ion-list>
@@ -20,6 +20,12 @@
 
 <ion-footer  class="footer">
   <ion-toolbar>
-    <ion-title>Footer Toolbar Joaquín Cardoso Buzón</ion-title>
+    <ion-title>
+      <ion-col>
+        <ion-icon name="logo-github" onclick="window.open('https://github.com/jkdc/goldenRace_Ionic2', '_system', 'location=yes'); return false;"></ion-icon>
+        <ion-icon name="cloud-download" onclick="window.open('https://www.dropbox.com/sh/9arcusb17xohk00/AADbIO0SX3hjAVM0XLxNsQ-Ea?dl=0', '_system', 'location=yes'); return false;"></ion-icon>
+      </ion-col>
+      <ion-col>Joaquín Cardoso Buzón</ion-col>
+    </ion-title>
   </ion-toolbar>
 </ion-footer>

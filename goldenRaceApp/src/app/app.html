@@ -6,16 +6,17 @@
   </ion-header>
 
   <ion-content>
-    <ion-list>
+    <ion-list class="user">
       <ion-row class="user-main-data-row">
-        <p>Username: {{username}}</p>
+        <p>Username: Golden Race</p>
       </ion-row>
       <ion-row class="user-main-data-row">
-        <p>Credit: {{credit}}</p>
+        <p>Credit: 10.000</p>
       </ion-row>
     </ion-list>
+
     <ion-list>
-      <button ion-item *ngFor="let p of pages" (click)="openPage(p)">
+      <button  ion-item *ngFor="let p of pages" (click)="openPage(p)">
         {{p.title}}
       </button>
     </ion-list>

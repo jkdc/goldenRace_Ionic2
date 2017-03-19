@@ -22,7 +22,6 @@ export class EventVideoPage {
     this.matches_rm = this.league.mr;
     this.matches = this.matches_rm[this.matches_rm.length - 1];
     this.playerCount = 0;
-   // this.timer = new TimerService;
   }
 
   ionViewDidLoad() {
@@ -30,19 +29,16 @@ export class EventVideoPage {
   }
 
 ngOnInit(){
-  //this.timer.clearTime();
   this.timer.setTime(14);
   this.timer.initTimer();
-    console.log("llamada");
 }
   onFinishPlayer(event){
     this.playerCount++;
     let video = event.srcElement;
-    if(this.playerCount>2){
+    if(this.playerCount>6){
       this.navCtrl.setRoot(EventResultPage, {league: this.league,timer:this.timer}, { animate: true, direction: 'forward' });
     }else{
       video.play();
-      //this.timer.startTimer();
       this.timer.clearTime();
       this.timer.setTime(14);
       this.timer.initTimer();

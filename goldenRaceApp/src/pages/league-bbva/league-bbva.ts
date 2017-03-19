@@ -6,11 +6,12 @@ import {LeagueModel,MatchModel, MatchResultModel, UnderOverModel} from "../model
 import {TimerService} from "../../providers/timer.service";
 import {EventIdService} from "../../providers/event.service";
 import {LeagueService} from "../../providers/league.service";
+import {Storage} from "@ionic/storage";
 
 @Component({
   selector: 'page-league-bbva',
   templateUrl: 'league-bbva.html',
-  providers: [LeagueService, TimerService, EventIdService]
+  providers: [LeagueService, TimerService, EventIdService,Storage]
 })
 export class LeagueBbvaPage {
   league_bbva: LeagueModel;
@@ -21,7 +22,8 @@ export class LeagueBbvaPage {
   matches_mr: Array<MatchResultModel> = [];
   matches_uo: Array<UnderOverModel> = [];
   constructor(public navCtrl: NavController, public navParams: NavParams, public leagueService:LeagueService,public timer:TimerService,
-              public event: EventIdService) {}
+              public event: EventIdService) {
+  }
 
   ionViewDidLoad() {
     this.matches_mr = [];
@@ -30,16 +32,19 @@ export class LeagueBbvaPage {
     this.teams = this.league_bbva.teams;
     this.matches = this.leagueService.makeWorkingDay(this.teams);
 
-    this.match_mr.id=this.event.getNewId();
+    this.event.getNewId().then(data => {
+      this.match_mr.id=data;
+    });
     this.match_mr.matches=this.matches;
     this.matches_mr.push(this.match_mr);
 
-    this.match_uo.id=this.event.getNewId();
+    this.event.getNewId().then(data => {
+      this.match_uo.id=data;
+    });
     this.match_uo.matches=this.matches;
 
     this.league_bbva.mr.push(this.match_mr);
     this.league_bbva.uo.push(this.match_uo);
-
   }
 
 

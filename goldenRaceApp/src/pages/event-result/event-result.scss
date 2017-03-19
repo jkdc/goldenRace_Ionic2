@@ -23,6 +23,9 @@ page-event-result {
     .row:last-child .col {
       border-bottom: solid 1px grey;
     }
+    .row:last-child {
+      border-bottom: solid 1px grey;
+    }
     .row{
       .title{
         text-align: center;
@@ -35,6 +38,8 @@ page-event-result {
   }
   .bet{
     .result{
+      right: 8px;
+
       .row{
         background-color: lightgray;
         border: solid 1px grey;
@@ -67,5 +72,6 @@ page-event-result {
   .item-inner {
     padding-right: 0px!important;
   }
+
 }
 

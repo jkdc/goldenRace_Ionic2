@@ -1,4 +1,4 @@
-import {Component, SimpleChange, Input} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {NavController, NavParams, AlertController} from 'ionic-angular';
 import { LeagueModel, MatchResultModel} from "../models/league.model";
 import {EventUnderOverPage} from "../event-under-over/event-under-over";
@@ -18,18 +18,15 @@ export class EventMatchResultPage {
   matches: MatchResultModel;
   matches_mr: Array<MatchResultModel> = [];
   in_event: boolean;
-
+  jornada: number;
   constructor(public navCtrl: NavController, public navParams: NavParams, private alertCtrl: AlertController) {
     this.league = navParams.get('league');
     this.timer = navParams.get('timer');
 
     this.matches = this.league.mr[this.league.mr.length-1];
-
     this.in_event=false;
   }
-  goToEventVideo(){
-    console.log("cambio");
-  }
+
 
   ngDoCheck() {
     // called whenever Angular runs change detection
@@ -39,19 +36,12 @@ export class EventMatchResultPage {
     }
   }
   ionViewDidLoad() {
-    console.log('ionViewDidLoad EventMatchResultPage');
-    //console.log(this.timer.displayTime);
+    this.jornada = this.league.mr.length;
   }
 
   goToUnderOver(){
 
     this.navCtrl.setRoot(EventUnderOverPage, {league: this.league,timer:this.timer}, { animate: true, direction: 'forward' });
-  }
-  ngOnChanges(changes: {[propertyName: string]: SimpleChange}) {
-    if (changes['timer.displayTime']) { // fire your event }
-      console.log("cambios");
-    }
-    console.log("cam");
   }
 
   goTopresentPrompt(item1,item2) {

@@ -1,16 +1,16 @@
-
 <ion-content>
-  <ion-list>
-    <ion-row>
-      TEAM: {{team.name}}
-    </ion-row>
-    <ion-row>
-      <ion-card>
-        <img src="./assets/img/escudo.PNG"/>
-      </ion-card>
-    </ion-row>
-    <ion-row>
-      Descripcion
-    </ion-row>
-  </ion-list>
+  <button class="boton" ion-button clear (click)="dismiss()">
+    CLOSE
+  </button>
+  <ion-card>
+    <img class="img" src="./assets/img/escudo.PNG"/>
+    <ion-card-content>
+      <ion-card-title>
+        <h1>TEAM: {{team.name}}</h1>
+      </ion-card-title>
+      <p>
+        This is an example of description of team
+      </p>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

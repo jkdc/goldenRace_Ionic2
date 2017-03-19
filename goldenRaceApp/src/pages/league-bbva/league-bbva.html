@@ -9,37 +9,40 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content padding class="container content">
   <ion-list>
     <ion-row>
-      LEAGUE BBVA
+      <h1 class="title">LEAGUE BBVA</h1>
     </ion-row>
     <ion-row>
-      Imagneen
-    </ion-row>
-    <ion-row>
-      Descripcion
+      <img class="img" src="./assets/img/Liga_BBVA.png"/>
     </ion-row>
     <ion-row>
       <ion-item-group>
-        <ion-item (click)="goToMatchResult()">
-          Event match-result
-        </ion-item>
-        <ion-item (click)="goToUnderOver()">
-          Event under-over
-        </ion-item>
+        <button ion-button icon-left (click)="goToMatchResult()">
+          <ion-icon name="star"></ion-icon>Event match-result
+        </button>
+        <button ion-button icon-left  (click)="goToUnderOver()">
+          <ion-icon name="star"></ion-icon>Event under-over
+        </button>
       </ion-item-group>
     </ion-row>
-
   </ion-list>
   <ion-list >
-    <ion-item-divider ion-item *ngFor="let item of teams" (click)="itemTapped($event, item)" detail-push>
+    <ion-item  style-changer *ngFor="let item of teams" (click)="goToItemTapped($event, item)" detail-push>
       <ion-row>{{item.id}} {{item.name}}</ion-row>
-    </ion-item-divider>
+    </ion-item>
   </ion-list>
 </ion-content>
+
 <ion-footer  class="footer">
   <ion-toolbar>
-    <ion-title>Footer Toolbar Joaquín Cardoso Buzón</ion-title>
+    <ion-title>
+      <ion-col>
+        <ion-icon name="logo-github" onclick="window.open('https://github.com/jkdc/goldenRace_Ionic2', '_system', 'location=yes'); return false;"></ion-icon>
+        <ion-icon name="cloud-download" onclick="window.open('https://www.dropbox.com/sh/9arcusb17xohk00/AADbIO0SX3hjAVM0XLxNsQ-Ea?dl=0', '_system', 'location=yes'); return false;"></ion-icon>
+      </ion-col>
+      <ion-col>Joaquín Cardoso Buzón</ion-col>
+    </ion-title>
   </ion-toolbar>
 </ion-footer>
