@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import {NavController, NavParams, ActionSheetController} from 'ionic-angular';
 import {EventMatchResultPage} from "../event-match-result/event-match-result";
 import {EventUnderOverPage} from "../event-under-over/event-under-over";
 import {LeagueModel,MatchModel, MatchResultModel, UnderOverModel} from "../models/league.model";

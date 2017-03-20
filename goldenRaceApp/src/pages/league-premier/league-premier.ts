@@ -22,8 +22,7 @@ export class LeaguePremierPage {
   match_uo: UnderOverModel = new UnderOverModel;
   matches_mr: Array<MatchResultModel> = [];
   matches_uo: Array<UnderOverModel> = [];
-  constructor(public navCtrl: NavController, public navParams: NavParams, public leagueService:LeagueService,public timer:TimerService,
-  public event: EventIdService,public actionSheetCtrl: ActionSheetController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public leagueService:LeagueService,public timer:TimerService, public event: EventIdService,public actionSheetCtrl: ActionSheetController) {
 
   }
 
