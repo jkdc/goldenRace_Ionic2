@@ -21,8 +21,7 @@ export class LeagueBbvaPage {
   match_uo: UnderOverModel = new UnderOverModel;
   matches_mr: Array<MatchResultModel> = [];
   matches_uo: Array<UnderOverModel> = [];
-  constructor(public navCtrl: NavController, public navParams: NavParams, public leagueService:LeagueService,public timer:TimerService,
-              public event: EventIdService) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public leagueService:LeagueService,public timer:TimerService, public event: EventIdService,public actionSheetCtrl: ActionSheetController) {
   }
 
   ionViewDidLoad() {
@@ -59,5 +58,21 @@ export class LeagueBbvaPage {
       this.timer.initTimer();
     }
     this.navCtrl.setRoot(EventMatchResultPage, {league: this.league_bbva, timer: this.timer}, { animate: true, direction: 'forward' });
+  }
+    goToItemTapped(event,item){
+    let actionSheet = this.actionSheetCtrl.create({
+      title: 'Team',
+      buttons: [
+        {
+          text: 'ID:: '+item.id,
+        },
+        {
+          text: 'Team: '+item.name,
+        }
+              ]
+    });
+    actionSheet.present();
+    actionSheet._cssClass
+
   }
 }
